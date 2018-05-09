@@ -3,8 +3,9 @@ class User < ApplicationRecord
   has_many :questions, dependent: :restrict_with_exception
   has_many :acknowledgements, dependent: :restrict_with_exception
   has_many :addresses, dependent: :restrict_with_exception
-  has_many :user_comments, dependent: :restrict_with_exception
+  has_one :user_comment, dependent: :restrict_with_exception
   has_one :user_provided, dependent: :restrict_with_exception
+  belongs_to :avatar
 
   # 選択したメ−ルサ−ビス
   has_many :users_direct_mail_opt_ins

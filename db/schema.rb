@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_03_073629) do
+ActiveRecord::Schema.define(version: 2018_05_09_141320) do
 
   create_table "acknowledgements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "body", null: false
@@ -35,6 +35,9 @@ ActiveRecord::Schema.define(version: 2018_05_03_073629) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+  create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  end
+
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "question_id", null: false
     t.integer "seq_num", null: false
@@ -44,7 +47,12 @@ ActiveRecord::Schema.define(version: 2018_05_03_073629) do
     t.bigint "mentor_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "disabled_at"
+    t.bigint "moral_hazard_id"
+    t.bigint "disabled_by_id"
+    t.index ["disabled_by_id"], name: "index_answers_on_disabled_by_id"
     t.index ["mentor_id"], name: "index_answers_on_mentor_id"
+    t.index ["moral_hazard_id"], name: "index_answers_on_moral_hazard_id"
     t.index ["question_id", "anchor"], name: "index_answers_on_question_id_and_anchor", unique: true
     t.index ["question_id", "seq_num"], name: "index_answers_on_question_id_and_seq_num", unique: true
     t.index ["question_id"], name: "index_answers_on_question_id"
@@ -86,6 +94,11 @@ ActiveRecord::Schema.define(version: 2018_05_03_073629) do
     t.index ["university_id"], name: "index_aspiration_university_histories_on_university_id"
     t.index ["user_id", "revision"], name: "index_aspiration_university_histories_on_user_id_and_revision"
     t.index ["user_id"], name: "index_aspiration_university_histories_on_user_id"
+  end
+
+  create_table "avatars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "label"
+    t.string "file", null: false
   end
 
   create_table "career_decisions_histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -171,6 +184,15 @@ ActiveRecord::Schema.define(version: 2018_05_03_073629) do
     t.index ["user_id"], name: "index_grade_histories_on_user_id"
   end
 
+  create_table "inquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "subject"
+    t.string "sender_address"
+    t.bigint "user_id"
+    t.text "body"
+    t.integer "category"
+    t.index ["user_id"], name: "index_inquiries_on_user_id"
+  end
+
   create_table "institutes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -199,6 +221,7 @@ ActiveRecord::Schema.define(version: 2018_05_03_073629) do
     t.string "entry_type", null: false
     t.text "comment"
     t.timestamp "created_at"
+    t.text "reason"
     t.index ["entry_id", "entry_type", "user_id"], name: "idx_moral_hazards", unique: true
     t.index ["user_id"], name: "index_moral_hazards_on_user_id"
   end
@@ -430,6 +453,11 @@ ActiveRecord::Schema.define(version: 2018_05_03_073629) do
     t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "disabled_at"
+    t.bigint "moral_hazard_id"
+    t.bigint "disabled_by_id"
+    t.index ["disabled_by_id"], name: "index_questions_on_disabled_by_id"
+    t.index ["moral_hazard_id"], name: "index_questions_on_moral_hazard_id"
     t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
@@ -508,10 +536,34 @@ ActiveRecord::Schema.define(version: 2018_05_03_073629) do
     t.boolean "registration_by_parent", default: false, null: false
     t.string "email_without_gmail_style", null: false
     t.integer "gender", default: 0
+    t.datetime "disabled_at"
+    t.text "reason_disabled"
+    t.bigint "disabled_by_id"
+    t.bigint "avatar_id"
+    t.string "crypted_password"
+    t.string "password_salt"
+    t.string "persistence_token"
+    t.string "single_access_token"
+    t.string "perishable_token"
+    t.integer "login_count", default: 0, null: false
+    t.integer "failed_login_count", default: 0, null: false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string "current_login_ip"
+    t.string "last_login_ip"
+    t.boolean "active", default: false
+    t.boolean "approved", default: false
+    t.boolean "confirmed", default: false
+    t.index ["avatar_id"], name: "index_users_on_avatar_id"
+    t.index ["disabled_by_id"], name: "index_users_on_disabled_by_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["email_without_gmail_style"], name: "idx_users_against_gmail_style", unique: true
     t.index ["joining_request_id"], name: "index_users_on_joining_request_id"
     t.index ["login"], name: "index_users_on_login", unique: true
+    t.index ["perishable_token"], name: "index_users_on_perishable_token", unique: true
+    t.index ["persistence_token"], name: "index_users_on_persistence_token", unique: true
+    t.index ["single_access_token"], name: "index_users_on_single_access_token", unique: true
   end
 
   create_table "users_direct_mail_opt_ins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -561,6 +613,7 @@ ActiveRecord::Schema.define(version: 2018_05_03_073629) do
 
   add_foreign_key "acknowledgements", "answers"
   add_foreign_key "addresses", "users"
+  add_foreign_key "answers", "admin_users", column: "disabled_by_id"
   add_foreign_key "answers", "mentors"
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
@@ -587,9 +640,11 @@ ActiveRecord::Schema.define(version: 2018_05_03_073629) do
   add_foreign_key "profile_vocational_schools", "users"
   add_foreign_key "question_categories_questions", "question_categories"
   add_foreign_key "question_categories_questions", "questions"
+  add_foreign_key "questions", "admin_users", column: "disabled_by_id"
   add_foreign_key "questions", "users"
   add_foreign_key "user_comments", "users"
   add_foreign_key "user_provideds", "users"
+  add_foreign_key "users", "admin_users", column: "disabled_by_id"
   add_foreign_key "users_direct_mail_opt_ins", "dict_direct_mail_opt_ins"
   add_foreign_key "users_direct_mail_opt_ins", "users"
   add_foreign_key "users_notification_opt_ins", "dict_notification_opt_ins"
