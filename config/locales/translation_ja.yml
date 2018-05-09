@@ -1,0 +1,423 @@
+ja:
+  activerecord:
+    models:
+      acknowledgement: 了承  #g
+      address: 住所  #g
+      answer: 回答  #g
+      aspiration_high_school_history: 志望高校
+      aspiration_university_history: 志望大学
+      career_decisions_history: 文理選択
+      change_email_request: メールアドレス変更
+      department: 学科
+      dict_career_decision: 文理選択
+      dict_direct_mail_opt_in: メールサービスのご希望
+      dict_grade: 学年
+      dict_notification_opt_in: 通知設定
+      faculty: 学部  #g
+      grade_history: 学年
+      institute: 研究機関等
+      joining_request: 会員登録リクエスト
+      mentor: 先輩リケジョ
+      moral_hazard: 通報
+      notification: お知らせ  #g
+      notification_send: 通知送信履歴
+      profile_business: 職歴
+      profile_doctor: 大学院（博士課程）
+      profile_education: 教育関係
+      profile_high_school: 卒業高校
+      profile_junior_high: 卒業中学生
+      profile_master: 大学院（修士課程）
+      profile_other_academic: その他の学歴
+      profile_postdoctoral: 博士研究員歴
+      profile_university: 卒業大学
+      profile_vocational_school: 卒業専門学校
+      question: 質問  #g
+      question_categories_question: 質問カテゴリの質問  #g
+      question_category: 質問カテゴリ
+      rikejob: 志望分野
+      secondary_school: 学校
+      secondary_school_course: 専科・専攻
+      university: 大学  #g
+      user: ユーザー  #g
+      user_comment: ユーザーコメント  #g
+      user_provided: ユーザー提供  #g
+      users_direct_mail_opt_in: :activerecord.models.dict_direct_mail_opt_in
+      users_notification_opt_in: :activerecord.models.dict_notification_opt_in
+      users_rikejob: :activerecord.models.rikejob
+      vocational_school: 専門学校
+      voting: 投票  #g
+
+    attributes:
+      acknowledgement:
+        answer: :activerecord.models.answer  #g
+        body: 体  #g
+        seq_num: Seq num  #g
+        user: :activerecord.models.user  #g
+
+      address:
+        address1: 住所（1  #g
+        address2: アドレス2  #g
+        address3: 住所3  #g
+        prefecture: 県  #g
+        tel: 電話番号  #g
+        user: :activerecord.models.user  #g
+        zip1: Zip1  #g
+        zip2: Zip2  #g
+
+      answer:
+        acknowledgement: 了承  #g
+        anchor: アンカー  #g
+        body: 体  #g
+        mentor: :activerecord.models.mentor  #g
+        moral_hazards: モラルハザード  #g
+        question: :activerecord.models.question  #g
+        seq_num: Seq num  #g
+        user: :activerecord.models.user  #g
+
+      aspiration_high_school_history:
+        description: その他備考
+        grade_history: :activerecord.models.grade_history  #g
+        revision: リビジョン  #g
+        secondary_school: :activerecord.models.secondary_school  #g
+        secondary_school_course: :activerecord.models.secondary_school_course  #g
+        secondary_school_course_name: 専科・専攻
+        secondary_school_name: 学校名
+        user: :activerecord.models.user  #g
+
+      aspiration_university_history:
+        department: :activerecord.models.department  #g
+        department_name: 学科
+        description: その他備考
+        faculty: :activerecord.models.faculty  #g
+        faculty_name: 学部  #g
+        grade_history: :activerecord.models.grade_history  #g
+        revision: リビジョン  #g
+        university: :activerecord.models.university  #g
+        university_name: 大学名
+        user: :activerecord.models.user  #g
+
+      career_decisions_history:
+        dict_career_decision: :activerecord.models.dict_career_decision  #g
+        grade_history: :activerecord.models.grade_history  #g
+        revision: リビジョン  #g
+        user: :activerecord.models.user  #g
+
+      change_email_request:
+        email: Eメール  #g
+        token: トークン  #g
+        token_expired_at: トークンの有効期限は  #g
+        user: :activerecord.models.user  #g
+        verified_at: 確認済み  #g
+
+      department:
+        name: 学科名
+
+      dict_career_decision:
+        description: 説明  #g
+        is_active: アクティブです  #g
+        key: キー  #g
+        label: ラベル  #g
+
+      dict_direct_mail_opt_in:
+        description: 説明  #g
+        is_active: アクティブです  #g
+        key: キー  #g
+        label: ラベル  #g
+
+      dict_grade:
+        is_active: アクティブです  #g
+        key: キー  #g
+        label: ラベル  #g
+
+      dict_notification_opt_in:
+        description: 説明  #g
+        is_active: アクティブです  #g
+        key: キー  #g
+        label: ラベル  #g
+
+      faculty:
+        is_doctor: 医者です  #g
+        is_master: マスター  #g
+        name: 学部名
+
+      grade_history:
+        dict_grade: :activerecord.models.dict_grade  #g
+        user: :activerecord.models.user  #g
+
+      institute:
+        name: 名称
+
+      joining_request:
+        email: Eメール  #g
+        token: トークン  #g
+        token_expired_at: トークンの有効期限は  #g
+        user: :activerecord.models.user  #g
+        verified_at: 確認済み  #g
+
+      mentor:
+        answers: アンサー  #g
+        user: :activerecord.models.user  #g
+
+      moral_hazard:
+        comment: コメント  #g
+        entry: :activerecord.models.entry  #g
+        entry_type: 入力タイプ  #g
+        user: :activerecord.models.user  #g
+
+      notification:
+        dst_user: :activerecord.models.dst_user  #g
+        is_read: 読む  #g
+        message_body: メッセージ本文  #g
+        src_event_type: Srcイベントタイプ  #g
+        src_user: :activerecord.models.src_user  #g
+
+      notification_send:
+        notification: :activerecord.models.notification  #g
+        sent_at: 送信日時  #g
+
+      profile_business:
+        company_name: 会社名
+        description: 説明  #g
+        entered_year: 開始年
+        graduated_year: 終了年度
+        responsibility: 職掌・役職
+        user: :activerecord.models.user
+
+      profile_doctor:
+        department: :activerecord.models.department
+        department_name: 学科
+        description: その他備考
+        entered_year: 入学年
+        faculty: :activerecord.models.faculty
+        faculty_name: 学部
+        graduated: 卒業した  #g
+        graduated_year: 卒業年
+        institute: :activerecord.models.institute
+        institute_name: 研究機関等
+        university: :activerecord.models.university  #g
+        university_name: 大学
+        user: :activerecord.models.user
+
+      profile_education:
+        department: :activerecord.models.department
+        department_name: 学科・部署
+        description: その他備考
+        entered_year: 開始年
+        faculty: :activerecord.models.faculty
+        faculty_name: 学部
+        graduated_year: 終了年
+        institute: :activerecord.models.institute
+        institute_name: 教育・研究機関等
+        name: 職掌・役職
+        university: :activerecord.models.university
+        university_name: 大学
+        user: :activerecord.models.user
+
+      profile_high_school:
+        description: その他備考
+        entered_year: 入学年
+        graduated: 卒業した  #g
+        graduated_year: 卒業年
+        secondary_school: :activerecord.models.secondary_school
+        secondary_school_course: :activerecord.models.secondary_school_course
+        secondary_school_course_name: 専科・専攻
+        secondary_school_name: 学校名
+        user: :activerecord.models.user
+
+      profile_junior_high:
+        description: その他備考
+        entered_year: 入学年
+        graduated: 卒業した  #g
+        graduated_year: 卒業年
+        secondary_school: :activerecord.models.secondary_school
+        secondary_school_course: :activerecord.models.secondary_school_course
+        secondary_school_course_name: 専科・専攻
+        secondary_school_name: 学校名
+        user: :activerecord.models.user
+
+      profile_master:
+        department: :activerecord.models.department
+        department_name: 学科
+        description: その他備考
+        entered_year: 入学年
+        faculty: :activerecord.models.faculty
+        faculty_name: 学部
+        graduated: 卒業した  #g
+        graduated_year: 卒業年
+        university: :activerecord.models.university
+        university_name: 大学
+        user: :activerecord.models.user
+
+      profile_other_academic:
+        description: 説明
+        user: :activerecord.models.user
+
+      profile_postdoctoral:
+        department: :activerecord.models.department
+        department_name: 学科・部署
+        description: その他備考
+        entered_year: 開始年
+        faculty: :activerecord.models.faculty
+        faculty_name: 学部
+        graduated_year: 終了年
+        institute: :activerecord.models.institute
+        institute_name: 研究機関等
+        university: :activerecord.models.university
+        university_name: 大学
+        user: :activerecord.models.user
+
+      profile_university:
+        department: :activerecord.models.department
+        department_name: 学科
+        description: その他備考
+        entered_year: 入学年
+        faculty: :activerecord.models.faculty
+        faculty_name: 学部
+        graduated: 卒業した  #g
+        graduated_year: 卒業年
+        university: :activerecord.models.university
+        university_name: 大学
+        user: :activerecord.models.user
+
+      profile_vocational_school:
+        department: :activerecord.models.department
+        department_name: 学科
+        description: その他備考
+        entered_year: 入学年
+        faculty: :activerecord.models.faculty
+        faculty_name: 学部
+        graduated: 卒業した  #g
+        graduated_year: 卒業年
+        user: :activerecord.models.user
+        vocational_school: :activerecord.models.vocational_school
+        vocational_school_name: 学校名
+
+      question:
+        answers: アンサー  #g
+        body: 体  #g
+        moral_hazards: モラルハザード  #g
+        question_categories: 質問カテゴリ  #g
+        question_categories_questions: :activerecord.models.question_categories_questions  #g
+        subject: 件名  #g
+        user: :activerecord.models.user  #g
+
+      question_categories_question:
+        question: :activerecord.models.question  #g
+        question_category: :activerecord.models.question_category  #g
+
+      question_category:
+        is_active: アクティブです  #g
+        label: ラベル  #g
+        question_categories_questions: :activerecord.models.question_categories_questions  #g
+        questions: 質問  #g
+
+      rikejob:
+        comment: コメント  #g
+        copy: コピー  #g
+        is_active: アクティブです  #g
+        job_type: ジョブの種類  #g
+        key: キー  #g
+        name: 名  #g
+        study_type: 研究タイプ  #g
+
+      secondary_school:
+        name: 学校名
+
+      secondary_school_course:
+        name: 専科・専攻名
+
+      university:
+        name: 大学名
+
+      user:
+        acknowledgements: 謝辞  #g
+        addresses: アドレス  #g
+        aspiration_high_school_histories: :activerecord.models.aspiration_high_school_history
+        aspiration_university_histories: :activerecord.models.aspiration_university_history
+        birthday: 生年月日
+        career_decisions_histories: :activerecord.models.dict_career_decision
+        dict_career_decision: :activerecord.models.dict_career_decision
+        dict_career_decision_id: :activerecord.models.dict_career_decision
+        current_profile_business: 現在のご職業
+        current_profile_doctor: 現在在学中の大学院（博士課程）
+        current_profile_education: 現在の在籍教育機関等
+        current_profile_high_school: 現在在学中の高校
+        current_profile_junior_high: 現在在学中の中学
+        current_profile_master: 現在在学中の大学院（修士課程）
+        current_profile_other_academic: 現在在学中のその他の学校
+        current_profile_postdoctoral: 現在在学中の大学・研究機関等
+        current_profile_university: 現在在学中の大学
+        current_profile_vocational_school: 現在在学中の専門学校
+        email: メールアドレス
+        password: パスワード
+        email_valid: 有効なメールアドレス  #g
+        email_valid_date_updated_at: 電子メールの有効期限はで更新  #g
+        email_without_gmail_style: Gmailスタイルのないメール  #g
+        first_name: 名
+        gender: 性別
+        grade_histories: :activerecord.models.dict_grade
+        joining_request: :activerecord.models.joining_request
+        kana_first_name: 名かな
+        kana_last_name: 姓かな
+        last_name: 姓
+        latest_aspiration_high_school_history: :activerecord.models.aspiration_high_school_history
+        latest_aspiration_university_history: :activerecord.models.aspiration_university_history
+        latest_career_decisions_history: :activerecord.models.career_decisions_history
+        latest_grade_history: :activerecord.models.dict_grade
+        latest_users_rikejobs: :activerecord.models.users_rikejobs
+        login: ログインID  #g
+        nickname: ニックネーム  #g
+        profile_businesses: :activerecord.models.profile_business
+        profile_doctors: :activerecord.models.profile_doctor
+        profile_educations: :activerecord.models.profile_education
+        profile_high_schools: :activerecord.models.profile_high_school
+        profile_junior_high: :activerecord.models.profile_junior_high
+        profile_masters: :activerecord.models.profile_master
+        profile_other_academics: :activerecord.models.profile_other_academic
+        profile_postdoctorals: :activerecord.models.profile_postdoctoral
+        profile_universities: :activerecord.models.profile_university
+        profile_vocational_schools: :activerecord.models.profile_vocational_school
+        questions: 質問  #g
+        registration_by_parent: 親による登録  #g
+        user_comments: ユーザーのコメント  #g
+        user_provided: :activerecord.models.user_provided  #g
+        users_direct_mail_opt_ins: ユーザーはダイレクトメールのオプトイン機能  #g
+        users_notification_opt_ins: ユーザー通知のオプトイン機能  #g
+        users_rikejobs: ユーザーrikejobs  #g
+
+      user_comment:
+        about_favorite: お気に入りについて  #g
+        about_subject: 件名について  #g
+        comment: コメント  #g
+        depend_reference: 依存参照  #g
+        dream: 夢  #g
+        feel_science: 科学を感じる  #g
+        hobby: 趣味  #g
+        opportunity: 機会  #g
+        user: :activerecord.models.user  #g
+
+      user_provided:
+        twitter: Twitter  #g
+        user: :activerecord.models.user  #g
+
+      users_direct_mail_opt_in:
+        dict_direct_mail_opt_in: :activerecord.models.dict_direct_mail_opt_in  #g
+        user: :activerecord.models.user  #g
+
+      users_notification_opt_in:
+        dict_notification_opt_in: :activerecord.models.dict_notification_opt_in  #g
+        user: :activerecord.models.user  #g
+
+      users_rikejob:
+        grade_history: :activerecord.models.grade_history
+        revision: リビジョン  #g
+        revoked_at: 失効した  #g
+        rikejob: :activerecord.models.rikejob
+        user: :activerecord.models.user
+
+      vocational_school:
+        name: 学校名
+
+      voting:
+        answer: :activerecord.models.answer  #g
+        user: :activerecord.models.user  #g

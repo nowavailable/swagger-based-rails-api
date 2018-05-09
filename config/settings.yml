@@ -1,0 +1,47 @@
+# Be sure to restart your server when you modify this file.
+
+# Your secret key is used for verifying the integrity of signed cookies.
+# If you change this key, all old signed cookies will become invalid!
+
+# Make sure the secret is at least 30 characters and all random,
+# no regular words or you'll be exposed to dictionary attacks.
+# You can use `rails secret` to generate a secure secret key.
+
+# Make sure the secrets in this file are kept private
+# if you're sharing your code publicly.
+
+development:
+  site_name: "テストRikejo Life"
+  site_url: "http://localhost:3000"
+  smtp_host: ""
+  smtp_domain: ""
+  smtp_port: ""
+  smtp_user: ""
+  smtp_password: ""
+  sneder_address: "sendonly@rikejo.jp"
+  shanon_host: "https://www.my.kodansha.jp"
+
+test:
+  site_name: "テストRikejo Life"
+  site_url: "http://localhost:3000"
+  smtp_host: ""
+  smtp_domain: ""
+  smtp_port: ""
+  smtp_user: ""
+  smtp_password: ""
+  sneder_address: "sendonly@rikejo.jp"
+  shanon_host: "https://www.my.kodansha.jp"
+
+# Do not keep production secrets in the repository,
+# instead read values from the environment.
+production:
+  site_name: "Rikejo Life"
+#  site_url: "http://elb-1a475b2d86b71dcb.elb.ap-northeast-1.amazonaws.com"
+  site_url: "http://rkj.taskwell.me"
+  smtp_host: ""
+  smtp_domain: ""
+  smtp_port: ""
+  smtp_user: ""
+  smtp_password: ""
+  sneder_address: "sendonly@taskwell.me"
+  shanon_host: "https://www.my.kodansha.jp"

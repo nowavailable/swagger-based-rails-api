@@ -1,0 +1,2 @@
+class DataConvert::SmpToApp
+end
